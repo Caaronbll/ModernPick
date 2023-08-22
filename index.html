@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button#generateButton {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button#generateButton:hover {
+            background-color: #0056b3;
+        }
+        /* Two-column layout */
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 50%;
+            padding: 10px;
+        }
+        .column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Generator</h1>
+    </header>
+    <div class="container">
+        <h2>Generate Images from Description</h2>
+        <div class="row">
+            <div class="column">
+                <textarea id="description" rows="4" cols="50" placeholder="Enter your description"></textarea>
+                <br>
+                <button id="generateButton">Generate</button>
+            </div>
+            <div class="column">
+                <div id="imageContainer">
+                    <!-- Generated images will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Your JavaScript code goes here
+        // You can use JavaScript to handle user input and trigger image generation.
+        const generateButton = document.getElementById('generateButton');
+        const descriptionInput = document.getElementById('description');
+        const imageContainer = document.getElementById('imageContainer');
+
+        generateButton.addEventListener('click', () => {
+            const description = descriptionInput.value;
+
+            // Here, you would make an API request to generate an image based on the description.
+            // You'd then display the generated image in the 'imageContainer'.
+            // Due to the complexity of integrating with an AI model, this part will require additional coding and API access.
+
+            // For now, let's simulate displaying a placeholder image.
+            const placeholderImageUrl = 'https://via.placeholder.com/300';
+            imageContainer.innerHTML = `<img src="${placeholderImageUrl}" alt="Generated Image">`;
+        });
+    </script>
+</body>
+</html>
