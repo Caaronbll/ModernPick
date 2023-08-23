@@ -1,112 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Generator</title>
-    <style>
-        /* Your CSS styles go here */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f7f7f7;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        button#generateButton {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button#generateButton:hover {
-            background-color: #0056b3;
-        }
-        /* Two-column layout */
-        .row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        .column {
-            flex: 50%;
-            padding: 10px;
-        }
-        .column img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Image Generator</h1>
-    </header>
-    <div class="container">
-        <h2>Generate Images from Description</h2>
-        <div class="row">
-            <div class="column">
-                <textarea id="description" rows="4" cols="50" placeholder="Enter your description"></textarea>
-                <br>
-                <button id="generateButton">Generate</button>
-            </div>
-            <div class="column">
-                <div id="imageContainer">
-                    <!-- Generated images will be displayed here -->
-                </div>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>AI Image Generator</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="visual" viewBox="0 0 900 600" version="1.1"><rect x="0" y="0" width="100vw" height="100vh" fill="#4FACF7"/><path d="M0 360L21.5 362C43 364 86 368 128.8 360.5C171.7 353 214.3 334 257.2 325C300 316 343 317 385.8 318.2C428.7 319.3 471.3 320.7 514.2 318.5C557 316.3 600 310.7 642.8 317.7C685.7 324.7 728.3 344.3 771.2 350.5C814 356.7 857 349.3 878.5 345.7L900 342L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#009473"/><path d="M0 360L21.5 361.7C43 363.3 86 366.7 128.8 373.3C171.7 380 214.3 390 257.2 387.3C300 384.7 343 369.3 385.8 361C428.7 352.7 471.3 351.3 514.2 364.7C557 378 600 406 642.8 417.3C685.7 428.7 728.3 423.3 771.2 416C814 408.7 857 399.3 878.5 394.7L900 390L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#008165"/><path d="M0 447L21.5 437C43 427 86 407 128.8 407.7C171.7 408.3 214.3 429.7 257.2 431.5C300 433.3 343 415.7 385.8 408.7C428.7 401.7 471.3 405.3 514.2 401.8C557 398.3 600 387.7 642.8 384.7C685.7 381.7 728.3 386.3 771.2 393.7C814 401 857 411 878.5 416L900 421L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#006e57"/><path d="M0 423L21.5 431.3C43 439.7 86 456.3 128.8 456.2C171.7 456 214.3 439 257.2 433.5C300 428 343 434 385.8 433.2C428.7 432.3 471.3 424.7 514.2 425.5C557 426.3 600 435.7 642.8 441.8C685.7 448 728.3 451 771.2 453.7C814 456.3 857 458.7 878.5 459.8L900 461L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#005c49"/><path d="M0 516L21.5 507.5C43 499 86 482 128.8 480C171.7 478 214.3 491 257.2 490.8C300 490.7 343 477.3 385.8 471.3C428.7 465.3 471.3 466.7 514.2 475.7C557 484.7 600 501.3 642.8 503.3C685.7 505.3 728.3 492.7 771.2 484C814 475.3 857 470.7 878.5 468.3L900 466L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#004b3b"/><path d="M0 524L21.5 519.2C43 514.3 86 504.7 128.8 503C171.7 501.3 214.3 507.7 257.2 514.8C300 522 343 530 385.8 528C428.7 526 471.3 514 514.2 508.8C557 503.7 600 505.3 642.8 503.7C685.7 502 728.3 497 771.2 496C814 495 857 498 878.5 499.5L900 501L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#003a2e"/><path d="M0 550L21.5 549.2C43 548.3 86 546.7 128.8 546.2C171.7 545.7 214.3 546.3 257.2 550.2C300 554 343 561 385.8 565.8C428.7 570.7 471.3 573.3 514.2 567.5C557 561.7 600 547.3 642.8 541C685.7 534.7 728.3 536.3 771.2 540.7C814 545 857 552 878.5 555.5L900 559L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z" fill="#002a21"/></svg>
+        <header>
+            <h1>Modern Picks</h1>
+        </header>
+        <section class="images-section"></section>
+        <section class="bottom-section">
+        <div class="input-container">
+            <input/>
+            <div id="submit-icon">>></div>
         </div>
-    </div>
-    <script>
-        // Your JavaScript code goes here
-        // You can use JavaScript to handle user input and trigger image generation.
-        const generateButton = document.getElementById('generateButton');
-        const descriptionInput = document.getElementById('description');
-        const imageContainer = document.getElementById('imageContainer');
-
-        generateButton.addEventListener('click', () => {
-            const description = descriptionInput.value;
-
-            // Here, you would make an API request to generate an image based on the description.
-            // You'd then display the generated image in the 'imageContainer'.
-            // Due to the complexity of integrating with an AI model, this part will require additional coding and API access.
-
-            // For now, let's simulate displaying a placeholder image.
-            const placeholderImageUrl = 'https://via.placeholder.com/300';
-            imageContainer.innerHTML = `<img src="${placeholderImageUrl}" alt="Generated Image">`;
-        });
-    </script>
-</body>
+        </section>
+    </body>
 </html>
